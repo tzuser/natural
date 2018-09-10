@@ -1,5 +1,7 @@
 import React from 'react';
-import { Language } from 'context_/Language';
+import { connect } from 'public_/Context';
+import { Consumer } from 'context_/Language';
+
 const getText = (sourceText, data) => {
   let str = sourceText;
   if (!str) return null;
@@ -11,7 +13,10 @@ const getText = (sourceText, data) => {
   return str;
 };
 
-@Language.connect
+@connect(
+  Consumer,
+  'lang'
+)
 class T extends React.Component {
   renderFromText(text) {
     let { children } = this.props;

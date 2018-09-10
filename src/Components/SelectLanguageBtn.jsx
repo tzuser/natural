@@ -1,7 +1,12 @@
 import React from 'react';
 import SelectButton from 'com_/SelectButton';
-import { Language } from 'context_/Language';
+import { connect } from 'public_/Context';
+import { Consumer } from 'context_/Language';
 
+@connect(
+  Consumer,
+  'lang'
+)
 class SelectLanguageBtn extends React.Component {
   render() {
     let { index, setLanguage, list, isListFetching } = this.props.lang;
@@ -12,4 +17,4 @@ class SelectLanguageBtn extends React.Component {
   }
 }
 
-export default Language.connect(SelectLanguageBtn);
+export default SelectLanguageBtn;

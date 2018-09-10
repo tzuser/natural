@@ -4,7 +4,7 @@ import PageLoading from 'com_/PageLoading';
 import Loadable from 'react-loadable';
 import { Route, Redirect, withRouter, Switch } from 'react-router-dom';
 import Page from 'con_/Page';
-import { Language } from 'context_/Language';
+import Language from 'context_/Language';
 
 const LoadableHome = Loadable({
   loader: () => import(/* webpackChunkName: 'Home' */ './Home'),
@@ -25,7 +25,7 @@ class Pokedex extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Language.Provider>
+        <Language>
           <Page>
             <Switch>
               <Route exact path="/" component={LoadableHome} />
@@ -33,7 +33,7 @@ class Pokedex extends React.Component {
               <Route path="/join" component={LoadableJoin} />
             </Switch>
           </Page>
-        </Language.Provider>
+        </Language>
       </React.Fragment>
     );
   }
