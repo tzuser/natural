@@ -1,6 +1,7 @@
 import React from 'react';
 import FlyoutWrapped from 'com_/FlyoutWrapped';
 import ButtonListBox from 'com_/ButtonListBox';
+import IconButton from 'com_/IconButton';
 import { Button } from 'gestalt';
 const Item = ({ data, handleSelect, onClose }) => {
   return (
@@ -31,7 +32,9 @@ class SelectButton extends React.Component {
         )}
       >
         {onOpen => {
-          return <Button text={current.name} color="red" onClick={onOpen} />;
+          return (
+            <IconButton text={current.name} icon="globe" onClick={onOpen} />
+          );
         }}
       </FlyoutWrapped>
     );
